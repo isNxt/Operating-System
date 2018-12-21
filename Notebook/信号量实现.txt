@@ -1,0 +1,28 @@
+信号量实现:
+信号量>>临界区
+
+专有机器指令>>信号量>>临界区(忙等待-短)>>效率比较高
+专有机器指令>>临界区(忙等待-长)>>效率比较低
+
+区别:忙等地的长短
+原子性>>互斥性(semWait,semSignal)
+结构>>flag(用于专有机器指令的实现)
+structure semaphore{
+    int count;
+    int flag; //(0,1) 0>>令牌
+    Queue q;
+}
+void semWait(semaphore s){
+    //获取令牌
+    while compare_and_Swap(flag,0,1)!=0;
+    count++;
+    if count<0 排队
+    还回令牌
+    s.flag=0;
+}
+void semSignal(...){
+    ...
+}
+
+禁用中断
+单CPU

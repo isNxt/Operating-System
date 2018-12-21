@@ -1,0 +1,94 @@
+强信号量:FIFO (唤醒规则)
+弱信号量:非FIFO
+用信号量实现临界区:
+semaphore s=1;//定义信号量并初始化
+
+semWait(s);//entercritical
+邻居欸去;
+semSignal(是);//exitcritical
+
+生产者和消费者问:
+
+二元信号量:vslue={0,1}
+semWaitB(s);
+if value==1
+value=0; 
+else 排队
+semSignalB(s);
+if queue.empty()
+value=1
+else 唤醒规则二元信号量最多只能存储一个信号,不具备多余信号的储存能力
+无限缓冲的生产者与消费者问题:
+规则:先生产,后消费
+int n=0; //缓冲区中可用产品的数量
+semaphoreB s=1;//缓冲区的互斥访问信号量
+semaphoreB delay=0;//没有产品时,消费者的排队信号量
+void producer()
+{
+while (true)
+{
+生产;
+//把所生产的产品放入缓冲区(临界资源),需要获得该缓冲区的访问权限
+semWaitB(s);
+append();
+n++;
+if n==1 semSignalB(delay);//在纺织产品前,缓冲区中没有产品,就可能有消费者在没有产品的延迟队列上排队,
+因此需要用semSignalB(delay)去唤醒排队的消费者,如果没有排队的消费者,则该信号丢失
+semSignalB(s);
+}
+}void consumer()
+{
+semWaitB(delay);
+while(true)
+{
+//int m=0;局部变量
+semWaitB(S);//是否需要排队
+take;
+n--;
+semSignal(S);
+consume();
+if(n==0) semWaitB(delay);//下一轮的消费
+}
+}
+>>出现问题>>n出现负数,n的访问不是临界区的代码>>临时变量(局部变量)
+void()
+{
+parbegin(p,c);
+}
+
+信号量
+semphaphore s=1;//缓冲区的互斥访问信号量,初始化为1,表示该缓冲区在初始状态下是可访问
+semaphore n=0;//可用产品的信号量,因为信号量可以储存信号,则该信号量的值(>0)课代表可用产品的数量
+void p()
+{
+while(true)
+{
+produce;
+semWait(S);//放置产品前,需要获得缓冲区的访问全新啊
+append;
+semSignal(S);//释放缓冲区的访问权限
+semSignal(n);//告诉消费者,可用产品的数量新增一个}}
+void c(){
+while (true)
+{
+semWait(n);//得否有可用的产品,没有则排队
+semWait(s);//获得产品前,需要缓冲区的访问权限
+take;
+semSignal(S);//获取产品后,是否那个缓冲区的访问权限
+}}}
+有限缓冲区:
+const sizeofbuffer=N;
+semaphore s=1;
+semaphore n-0;
+semaphore e=sizeofbuffer;
+增加规则:有空位才能放
+void p(int i)
+{
+while(true)
+{
+produce;
+semWait(E);
+semWait()append;
+semSignal(S);
+semSignal(n);//告诉消费者,产品多了一个}}
+void c()

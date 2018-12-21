@@ -1,0 +1,305 @@
+动态规划题集整理
+
+  1、递推
+        Recursion Practice                              ★☆☆☆☆          几个初级递推
+        Put Apple                                       ★☆☆☆☆
+
+        Tri Tiling                                      ★☆☆☆☆          【例题1】
+        Computer Transformation                         ★☆☆☆☆          【例题2】
+        Train Problem II                                ★☆☆☆☆          
+        How Many Trees?                                 ★☆☆☆☆          
+        Buy the Ticket                                  ★☆☆☆☆          
+        Game of Connections                             ★☆☆☆☆
+        Count the Trees                                 ★☆☆☆☆
+        Circle                                          ★☆☆☆☆
+        Combinations, Once Again                        ★★☆☆☆
+        Closing Ceremony of Sunny Cup                   ★★☆☆☆           
+        Rooted Trees Problem                            ★★☆☆☆          
+        Water Treatment Plants                          ★★☆☆☆           
+        One Person                                      ★★☆☆☆
+        Relax! It’s just a game                        ★★☆☆☆
+        N Knight                                        ★★★☆☆
+        Connected Graph                                 ★★★★★          楼天城“男人八题”之一
+
+
+   2、记忆化搜索
+        Function Run Fun                                ★☆☆☆☆          【例题3】
+
+        FatMouse and Cheese                             ★☆☆☆☆          经典迷宫问题
+
+        Cheapest Palindrome                             ★★☆☆☆ 
+
+        A Mini Locomotive                               ★★☆☆☆
+
+        Millenium Leapcow                               ★★☆☆☆
+
+        Brackets Sequence                               ★★★☆☆          经典记忆化
+
+        Chessboard Cutting                              ★★★☆☆          《算法艺术和信息学竞赛》例题
+
+        Number Cutting Game                             ★★★☆☆
+
+
+   3、最长单调子序列
+        Constructing Roads In JG Kingdom                ★★☆☆☆
+
+        Stock Exchange                                  ★★☆☆☆
+
+        Wooden Sticks                                   ★★☆☆☆
+
+        Bridging signals                                ★★☆☆☆
+
+        BUY LOW, BUY LOWER                              ★★☆☆☆         要求需要输出方案数
+
+        Longest Ordered Subsequence                     ★★☆☆☆
+
+        Crossed Matchings                               ★★☆☆☆
+
+        Jack's struggle                                 ★★★☆☆          稍微做点转化
+
+
+   4、最大M子段和
+        Max Sum                                         ★☆☆☆☆              最大子段和
+
+        Max Sum Plus Plus                               ★★☆☆☆              最大M子段和
+
+        To The Max                                      ★★☆☆☆              最大子矩阵
+
+        Max Sequence                                    ★★☆☆☆              最大2子段和
+
+        Maximum sum                                     ★★☆☆☆              最大2子段和
+
+        最大连续子序列                                  ★★☆☆☆              最大子段和
+
+        Largest Rectangle in a Histogram                ★★☆☆☆              最大子矩阵变形
+
+        City Game                                       ★★☆☆☆              最大子矩阵扩展
+
+        Matrix Swapping II                              ★★★☆☆              最大子矩阵变形后扩展
+
+
+   5、线性模型
+        Skiing                                          ★☆☆☆☆
+
+        Super Jumping! Jumping! Jumping!                ★☆☆☆☆ 
+
+        Milking Time                                    ★★☆☆☆         区间问题的线性模型
+
+        Computers                                       ★★☆☆☆         【例题5】
+
+        Bridge over a rough river                       ★★★☆☆         【例题6】
+
+        Crossing River                                  ★★★☆☆         【例题6】大数据版
+
+        Blocks                                          ★★★☆☆          
+
+        Parallel Expectations                           ★★★★☆         线性模型黑书案例
+
+       6、区间模型
+        Palindrome                                      ★☆☆☆☆         【例题7】
+
+        See Palindrome Again                            ★★★☆☆
+
+
+       7、背包模型
+        饭卡                                            ★☆☆☆☆              01背包
+
+        I NEED A OFFER!                                 ★☆☆☆☆              概率转化
+
+        Bone Collector                                  ★☆☆☆☆              01背包
+
+        最大报销额                                      ★☆☆☆☆              01背包
+
+        Duty Free Shop                                  ★★☆☆☆              01背包
+
+        Robberies                                       ★★☆☆☆              【例题8】 
+
+        Piggy-Bank                                      ★☆☆☆☆              完全背包
+
+        Cash Machine                                    ★☆☆☆☆              多重背包
+
+        Coins                                           ★★☆☆☆              多重背包，楼天城“男人八题”之一
+
+        I love sneakers!                                ★★★☆☆              背包变形
+
+       8、状态压缩模型
+        ChessboardProblem                               ★☆☆☆☆              比较基础的状态压缩
+
+        Number of Locks                                 ★☆☆☆☆              简单状态压缩问题
+
+        Islands and Bridges                             ★★☆☆☆              【例题9】
+
+        Tiling a Grid With Dominoes                     ★★☆☆☆              骨牌铺方格 4XN的情况
+
+        Mondriaan's Dream                               ★★☆☆☆              【例题10】的简易版
+
+        Renovation Problem                              ★★☆☆☆              简单摆放问题
+
+        The Number of set                               ★★☆☆☆
+
+        Hardwood floor                                  ★★★☆☆              【例题10】二进制状态压缩鼻祖
+
+        Tetris Comes Back                               ★★★☆☆              纸老虎题
+
+        Bugs Integrated, Inc.                           ★★★☆☆              三进制状态压缩鼻祖
+
+        Another Chocolate Maniac                        ★★★☆☆              三进制
+
+        Emplacement                                     ★★★☆☆              类似Bugs那题，三进制
+
+        Toy bricks                                      ★★★☆☆              四进制， 左移运算高于&
+
+        Quad Tiling                                     ★★★☆☆              骨牌铺方格 4XN的情况 利用矩阵优化
+
+        Eat the Trees                                   ★★★☆☆              插头DP入门题
+
+        Formula 1                                       ★★★☆☆              插头DP入门题
+
+        The Hive II                                     ★★★☆☆              插头DP
+
+        Plan                                            ★★★☆☆              插头DP
+
+        Manhattan Wiring                                ★★★☆☆              插头DP
+
+        Pandora adventure                               ★★★★☆              插头DP
+
+        Tony's Tour                                     ★★★★☆              插头DP，楼天城“男人八题”之一
+
+        Pipes                                           ★★★★☆              插头DP
+
+        circuits                                        ★★★★☆              插头DP
+
+        Beautiful Meadow                                ★★★★☆              插头DP
+
+        I-country                                       ★★★★☆              高维状态表示
+
+        Permutaion                                      ★★★★☆              牛逼的状态表示
+
+        01-K Code                                       ★★★★☆
+
+        Tour in the Castle                              ★★★★★              插头DP（难）
+
+        The Floor Bricks                                ★★★★★              四进制（需要优化）
+
+       9、树状模型
+        Anniversary party                               ★☆☆☆☆              树形DP入门
+
+        Strategic game                                  ★☆☆☆☆              树形DP入门
+
+        Computer                                        ★★☆☆☆ 
+
+        Long Live the Queen                             ★★☆☆☆
+
+        最优连通子集                                    ★★☆☆☆ 
+
+        Computer Network                                ★★☆☆☆
+
+        Rebuilding Roads                                ★★★☆☆              树形DP+背包
+
+        New Year Bonus Grant                            ★★★☆☆
+
+        How Many Paths Are There                        ★★★☆☆  
+
+        Intermediate Rounds for Multicast               ★★★★☆
+
+        Fire                                            ★★★★☆
+
+        Walking Race                                    ★★★★☆
+
+        Tree                                            ★★★★★              树形DP，楼天城“男人八题”之一
+
+   
+        10、滚动数组优化常见问题
+        Palindrome                                      ★☆☆☆☆
+
+        Telephone Wire                                  ★☆☆☆☆
+
+        Gangsters                                       ★☆☆☆☆
+
+        Dominoes                                        ★☆☆☆☆
+
+        Cow Exhibition                                  ★☆☆☆☆
+
+        Supermarket                                     ★★☆☆☆
+ 
+
+        11、决策单调性
+        Print Article                                   ★★★☆☆
+
+        Lawrence                                        ★★★☆☆
+
+        Batch Scheduling                                ★★★☆☆        K-Anonymous Sequence                            ★★★☆☆
+        Cut the Sequence                                ★★★☆☆
+
+        12、常用优化
+        Divisibility                                    ★★☆☆☆        利用同余性质
+
+        Magic Multiplying Machine                       ★★☆☆☆        利用同余性质
+
+        Moving Computer                                 ★★☆☆☆        散列HASH表示状态
+
+        Post Office                                     ★★★☆☆        四边形不等式
+
+        Minimizing maximizer                            ★★★☆☆        线段树优化
+
+        Man Down                                        ★★★☆☆        线段树优化
+
+        So you want to be a 2n-aire?                    ★★★☆☆        期望问题
+
+        Expected Allowance                              ★★★☆☆        期望问题
+
+        Greatest Common Increase Subseq                 ★★★☆☆        二维线段树优化
+
+        Traversal                                       ★★★☆☆        树状数组优化
+
+        Find the nondecreasing subsequences             ★★★☆☆        树状数组优化
+
+        Not Too Convex Hull                             ★★★★☆        利用凸包进行状态转移
+
+        In Action                                       ★★★☆☆        最短路+背包
+
+        Search of Concatenated Strings                  ★★★☆☆        STL bitset 应用
+
+        13、其他类型的动态规划
+        Common Subsequence                              2D/0D
+
+        Advanced Fruits                                 2D/0D
+
+        Travel                                          2D/1D
+
+        RIPOFF                                          2D/1D
+
+        Balls                                           2D/1D
+
+        Projects                                        2D/1D
+
+        Cow Roller Coaster                              2D/1D 
+
+        LITTLE SHOP OF FLOWERS                          2D/1D
+
+        Pearls                                          2D/1D
+
+        Spiderman                                       2D/0D
+
+        The Triangle                        2D/0D 
+
+        Triangles                           2D/0D
+
+        Magazine Delivery                     3D/0D
+
+        Tourist                             3D/0D
+
+        Rectangle                           2D/1D
+
+        Message                             2D/1D
+
+        Bigger is Better                      2D/1D
+
+        Girl Friend II                       2D/1D
+
+        Phalanx                             2D/1D
+
+        Spiderman                           最坏复杂度O(NK)，K最大为1000000，呵呵
+
+        Find a path                                     3D/1D 公式简化，N维不能解决的问题试着用N+1维来求解
+
