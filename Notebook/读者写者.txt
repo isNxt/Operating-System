@@ -1,0 +1,171 @@
+读者和写者的问题：(考点)
+1.读进程有限：
+    -只要有读进程，读进程可以跟读，而不用管是否有写进程在排队。
+    -读进程在读：物理跟读
+2.写进程优先：
+    -只要有一个写进程A在写，任何写进程可以优先于读进程在写进程A完成后进行跟写。
+    -写进程"跟读“：逻辑跟读
+
+优先>>跟读>>用成组的方式来实现>>计数器+控制计数器的信号量>>第一个进程获得，最后一个进程释放。
+
+1.读进程优先
+int readcount=0;
+semaphore x=1, wsem=1(缓冲区的访问权限)；
+void reader(){
+    //有一个组的概念: int
+    readcount, semaphore x;
+    while(true){
+        semWait(x);
+        readcount++;
+        if(readcount==1) //第一个进程
+        semWait(wsem);
+        semSignal(x);
+
+        readunit();
+
+        semWait(x);
+        readcount--;
+        if(readcount==0)//最后一个进程
+        semSignal(wsem);
+    }
+}
+void writer(){
+    while(true){
+        semWait(x);
+        readcount++;
+        if(readcount==1) //第一个进程
+        semWait(wsem);
+        semSignal(x);
+
+        readunit();
+
+        semWait(x);
+        readcount--;
+        if(readcount==0)//最后一个进程
+        semSignal(wsem);
+    }
+}
+void main(){
+    parbegin(reader,writer);
+}
+
+2.写进程优先
+int readcount=0, writecount=0;
+semaphore x=1, y=1; //两个计数器的访问控制信号量
+semaphore reader_Q=1;//读者非有限的排队队列；
+semaphore rsem=1, wsem=1//缓冲区的读写权限；
+void writer(){
+    //第一个写者
+    semWait(y);
+    writecount++;
+    if(writecount==1)
+        semWait(rsem);
+    semSignal(y);
+    //写写互斥
+
+    //最后一个写者
+    semWait(y);
+    writecount--;
+    if(writecount==1)
+        semWait(rsem);
+    semSignal(y);
+    
+}
+void reader(){
+    //第一个读者
+    semWait(x);
+    readcount++;
+    if(readcount==1)
+        semWait(wsem);
+    semSignal(x);
+    semSignal(rsem);
+
+    //可以跟读
+    readunit();
+
+    //最后一个读者
+    semWait(x);
+    readcount--;
+    if(readcount==1)
+        semWait(wsem);
+    semSignal(x);
+}
+void main(){
+    parbegin(reader,writer);
+}
+
+
+用消息实现写进程优先: 
+    行为主体：三个，拓展出一个控制器
+    有了控制器后，所有的控制逻辑都在控制器中实现，读写进程的过程一样：
+    1. 申请读/写权限
+    2. 获得访问权限
+    3.进行具体访问(实际的读写操作)
+    4. 访问完成,告诉控制器访问完成(让控制器收回访问权限)
+    消息的通讯机制: 简介通讯+直接通讯
+        //readrequest, writerequest, finished 在主函数中创建,且初始化均为空
+        void main(){
+            create_mailbox(readrequest);
+            create_mailbox(writerequest);
+            create_mailbox(finished);
+            parbegin(reader(1),...,reader(N),writer(1),...,writer(N))
+        }
+        void reader(int i){
+            Message msg;
+            while(true){
+                msg.id=i;
+                send(readrequest,msg);
+                receive(mbox[i],msg);//直接通讯
+                readunit();//真正的读写操作
+                send(finished,msg);
+            }
+        }
+        void writer(int j){
+            Message msg;
+            while(true){
+                msg.id=j;
+                send(writerrequest,msg);
+                receive(mbox[i],msg);//直接通讯
+                writerunit();//真正的读写操作
+                send(finished,msg);
+            }
+        }
+        void controller(){
+            /*
+            如何去判断系统的读写进程的状态:count计数器,count=100,
+            前提:最大的并发读进程小于count的初始值100
+            读进程,一个进程减1
+            写进程,一个进程减100
+            如果只有读进程的作用,count的值不可能小于等于0
+            如果有写进程的作用,count的值不会大于0
+            */
+            if(count>0){
+                //有可能有读进程在读,没有写进程申请或正在写,完成信箱finished的消息一定是读进程发送的
+                if(!empty(finished)){
+                    receive(finished,msg);
+                    count++;
+                }
+                else if(!empty(writerequest)){
+                    //处理读写进程的请求,写进程优先,所有先处理写进程信箱
+                    receive(finfished.msg);
+                    write_id=msg.id;//为了后面发送权限批准的直接通讯;
+                    /*
+                    为什么这里不能直接把权限给写进程
+                    答:有可能有读进程在读
+                    */
+                    count-=100;//控制器已经知道了一些进程的请求,并准备批准
+                }
+                else if(!empty(readrequest)){
+                    //处理读写进程的请求,写进程优先,所有先处理写进程信箱
+                    receive(readrequest,msg);
+                    send(msg.id,NULL);//控制器直接把读权限批准给读进程>>不管此时有没有读进程在读,都不影响该进程在读
+                    count--;
+                }
+            }        
+            if(count==0){
+                //写进程已申请,批准,由于读写,写写都是互斥的,因此需要等待写进程结束(串行)
+            }
+            if(count<0){
+                
+            }
+        }
